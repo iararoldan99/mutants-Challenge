@@ -2,7 +2,6 @@ package ar.com.ada.api.mutant.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import ar.com.ada.api.mutant.entities.DNASample;
 import ar.com.ada.api.mutant.entities.Mutant;
 import ar.com.ada.api.mutant.models.request.SampleRequest;
 import ar.com.ada.api.mutant.models.response.GenericResponse;
@@ -21,7 +20,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 public class MutantController {
@@ -75,10 +73,10 @@ public class MutantController {
                 .supplyAsync(() -> this.mutantService.countHumans());
         while (!countHumanDNAResult.isDone()) {
             System.out.println("Esperando terminar de contar humanos");
-            Thread.sleep(1000); //NUNCA PONER ESTO DE VERDAD EN UNA WEB
+            Thread.sleep(1000); // NUNCA PONER ESTO DE VERDAD EN UNA WEB
         }
 
-        stats.countHumanDNA = (long) (countHumanDNAResult.get()); //this.mutantService.countHumans();
+        stats.countHumanDNA = (long) (countHumanDNAResult.get()); // this.mutantService.countHumans();
 
         System.out.println("Soy el Thread del controller " + Thread.currentThread().getId());
         System.out.println("Cantidad de humanos " + stats.countHumanDNA);
@@ -88,15 +86,15 @@ public class MutantController {
 
         this.logService.logDebug("Contando Mutantes");
 
-        //Este en en forma sincronica
+        // Este en en forma sincronica
         stats.countMutantDNA = this.mutantService.countMutants();
 
-        //Asincronico
+        // Asincronico
         Future<Long> countMutanDNAResult = this.mutantService.countMutantsAsync();
 
         while (!countMutanDNAResult.isDone()) {
             System.out.println("Esperando terminar de contar humanos");
-            Thread.sleep(1000); //NUNCA PONER ESTO DE VERDAD EN UNA WEB
+            Thread.sleep(1000); // NUNCA PONER ESTO DE VERDAD EN UNA WEB
         }
 
         stats.countMutantDNA = (long) (countMutanDNAResult.get());
@@ -112,9 +110,9 @@ public class MutantController {
 
         stats.ratio = stats.countMutantDNA * 1.00d / stats.countHumanDNA * 1.00d;
 
-        //Espero estos segundos para que terminen los otros metodos de impresion
-        //para demostracion
-        Thread.sleep(10000); //NUNCA PONER ESTO DE VERDAD EN UNA WEB
+        // Espero estos segundos para que terminen los otros metodos de impresion
+        // para demostracion
+        Thread.sleep(10000); // NUNCA PONER ESTO DE VERDAD EN UNA WEB
 
         int ratio = (int) (stats.ratio * 100);
         stats.ratio = ratio * 1.0d / 100;

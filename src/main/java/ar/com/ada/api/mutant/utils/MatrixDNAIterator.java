@@ -10,7 +10,7 @@ public class MatrixDNAIterator {
         char[][] m = sample.toMatrix();
         int matches = 0;
 
-        //iteramos por fila
+        // iteramos por fila
         for (int i = 0; i < m.length; i++) {
             for (int j = 0; j < m.length; j++) {
                 if (j + 4 >= m.length) {
@@ -34,7 +34,7 @@ public class MatrixDNAIterator {
         char[][] m = sample.toMatrix();
         int matches = 0;
 
-        //iteramos por columna
+        // iteramos por columna
         for (int j = 0; j < m.length; j++) {
             for (int i = 0; i < m.length; i++) {
 
@@ -68,8 +68,10 @@ public class MatrixDNAIterator {
         if (debugMode)
             System.out.println("Secuencia Diagonal Derecha a izq");
 
-        /*if (matches > 1) //Descomentar para salir de una si no importa la cantidad de matchs
-            return matches;*/
+        /*
+         * if (matches > 1) //Descomentar para salir de una si no importa la cantidad de
+         * matchs return matches;
+         */
 
         matches += matchesByDiagonals(sample.toMatrixInverted(), true);
 
@@ -87,12 +89,12 @@ public class MatrixDNAIterator {
             System.out.println(matrixToString(m));
         }
 
-        //diagonales de izq a derecha
+        // diagonales de izq a derecha
         for (int k = 0; k < m.length * 2; k++) {
             for (int j = 0; j <= k; j++) {
                 int i = k - j;
                 if (i < matrixSize && j < matrixSize) {
-                    //Aca estoy en diagonal de izq a derecha.
+                    // Aca estoy en diagonal de izq a derecha.
                     if (debugMode)
                         System.out.println("i : " + i + " , j: " + j);
                     if (i + 1 - 4 < 0 || j + 4 - 1 >= matrixSize) {

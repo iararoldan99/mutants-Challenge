@@ -1,6 +1,5 @@
 package ar.com.ada.api.mutant.services;
 
-import java.util.Date;
 import java.util.concurrent.Future;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +52,7 @@ public class MutantService {
 
         if (this.isMutant(dna)) {
             Mutant mutant = new Mutant();
-            //Solo para mutantes lo encripto
+            // Solo para mutantes lo encripto
             mutant.setDna(sample.encrypt());
             mutant.setUniqueHash(sample.uniqueHash());
             mutant.setName(name);

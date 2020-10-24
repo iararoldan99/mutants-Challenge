@@ -12,9 +12,9 @@ public class DNASample {
     }
 
     public boolean isValid() {
-        //dimensions
-        //&&
-        //only letter A, T, C, G
+        // dimensions
+        // &&
+        // only letter A, T, C, G
 
         return this.dimensionIsOk() && this.lettersOk();
     }
@@ -46,9 +46,10 @@ public class DNASample {
     }
 
     private boolean dimensionIsOk() {
-        //Tiene qeu ser NxN 
-        //String[] dnaMutant = {"ATGCGAA","CAGTGCA","TTATGTA","AGAAGGA","CCCCTAA","TCACTGA","TCGAACT"};		
-        //String[] dnaMutant = {}					
+        // Tiene qeu ser NxN
+        // String[] dnaMutant =
+        // {"ATGCGAA","CAGTGCA","TTATGTA","AGAAGGA","CCCCTAA","TCACTGA","TCGAACT"};
+        // String[] dnaMutant = {}
         int arrayLenghtSecuenceWord = this.dna.length;
 
         if (arrayLenghtSecuenceWord < MIN_SECUENCE)

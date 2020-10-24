@@ -33,11 +33,11 @@ public class MutantMVCController {
 
     }
 
-    //@GetMapping("/mutant/view?id={id}")
-    //@GetMapping("/mutant/delete?id={id}")
-    //@GetMapping("/mutant/modify?id={id}")
-    //@GetMapping("/mutant/new")
+    // @GetMapping("/mutant/view?id={id}")
+    // @GetMapping("/mutant/delete?id={id}")
+    // @GetMapping("/mutant/modify?id={id}")
+    // @GetMapping("/mutant/new")
 
-    //@PostMapping("/mutant/modify?id={id}")
+    // @PostMapping("/mutant/modify?id={id}")
 
 }

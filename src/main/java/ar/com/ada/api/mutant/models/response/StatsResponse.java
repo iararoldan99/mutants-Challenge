@@ -1,7 +1,6 @@
 package ar.com.ada.api.mutant.models.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 //@JsonPropertyOrder({"count_mutant_dna", "count_human_dna","ratio" })
 public class StatsResponse {

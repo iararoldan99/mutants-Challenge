@@ -1,9 +1,7 @@
 package ar.com.ada.api.mutant.security;
 
-import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.security.spec.KeySpec;
 import java.util.Base64;
 
@@ -71,16 +69,16 @@ public class Crypto {
     public static String hash(String strToHash, String salt) {
         try {
 
-            int iterations = 1000; //A mas iteraciones mas lento
+            int iterations = 1000; // A mas iteraciones mas lento
             char[] chars = strToHash.toCharArray();
             byte[] saltBytes = strToHash.getBytes("UTF-8");
 
-            PBEKeySpec spec = new PBEKeySpec(chars, saltBytes, iterations, 64 * 8); //Sha 512 \o/
+            PBEKeySpec spec = new PBEKeySpec(chars, saltBytes, iterations, 64 * 8); // Sha 512 \o/
             SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
             byte[] hash = skf.generateSecret(spec).getEncoded();
             return Base64.getEncoder().encodeToString(hash);
-            //return toHex(hash);
-            //return iterations + ":" + toHex(saltBytes) + ":" + toHex(hash);
+            // return toHex(hash);
+            // return iterations + ":" + toHex(saltBytes) + ":" + toHex(hash);
         } catch (Exception e) {
             System.out.println("Error while hashing: " + e.toString());
         }
