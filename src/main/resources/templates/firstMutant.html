@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>First Mutant</title>
+</head>
+
+<body>
+    <p>Hello, the first mutant is XXXXXXXX</p>
+    <p th:text="'Hello, the first mutant is '+ ${mutantName} + ', and the hash is '+ ${mutantUniqueHash}" />
+    <p th:text="'Hello, the first mutant is '+ ${mutant.getName()} + ', and the hash is '+ ${mutant.getUniqueHash()}" />
+
+</body>
+
+</html>
